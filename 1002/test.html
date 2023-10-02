@@ -9,13 +9,13 @@
 </body>
 
 <script>
-  function add(a, b) {
-    return a + b;
+  function add(a) {
+    return 'I';
   }
 
-  QUnit.module('add', function() {
-    QUnit.test('two numbers', function(assert) {
-      assert.equal(add(1, 2), 3);
+  QUnit.module('1', function() {
+    QUnit.test('1', function(assert) {
+      assert.equal(add(1), 'I');
     });
   });
 </script>
