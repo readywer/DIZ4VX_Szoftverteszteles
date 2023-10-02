@@ -16,7 +16,8 @@
       r=r+"I";
       
     }
-   }else if(n==4){
+   }
+   else if(n==4){
     r="IV";
    }
    else if(n<=8){
@@ -25,6 +26,9 @@
     for (let index = 0; index < n; index++) {
       r=r+"I";
     }
+   }
+   else if(n==9){
+    r="IX";
    }
    return r;
   }
@@ -50,6 +54,12 @@
     });
     QUnit.test('7', function(assert) {
       assert.equal(add(7), 'VII');
+    });
+    QUnit.test('8', function(assert) {
+      assert.equal(add(8), 'VIII');
+    });
+    QUnit.test('9', function(assert) {
+      assert.equal(add(9), 'IX');
     });
   });
 </script>
