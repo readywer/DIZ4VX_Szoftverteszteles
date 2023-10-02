@@ -9,21 +9,26 @@
 </body>
 
 <script>
-  function add(a) {
-    if(a==1){
-      return 'I';
+  function add(n) {
+  var r= "";
+   if(n<=3){
+    for (let index = 0; index < n; index++) {
+      r=r+"I";
+      
     }
-    else{
-      return 'II';
-    }
+   }
+   return r;
   }
 
   QUnit.module('Roman', function() {
     QUnit.test('1', function(assert) {
-      assert.equal(add(1), 'I');
+      assert.equal(add(1), "I");
     });
     QUnit.test('2', function(assert) {
       assert.equal(add(2), 'II');
+    });
+    QUnit.test('3', function(assert) {
+      assert.equal(add(3), 'III');
     });
   });
 </script>
