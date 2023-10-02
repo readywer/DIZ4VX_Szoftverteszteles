@@ -12,10 +12,7 @@
   function add(n) {
   var r= "";
    if(n<=3){
-    for (let index = 0; index < n; index++) {
-      r=r+"I";
-      
-    }
+    r=IAdd(n,r);
    }
    else if(n==4){
     r="IV";
@@ -23,21 +20,24 @@
    else if(n<=8){
     n +=-5;
     r ="V"
-    for (let index = 0; index < n; index++) {
-      r=r+"I";
-    }
+    r=IAdd(n,r);
    }
    else if(n==9){
     r="IX";
    }
    else if(n<=13){
-    n +=-10;
+    n -= 10;
     r ="X"
+    r=IAdd(n,r);
+   }
+   return r;
+  }
+  
+  function IAdd(n,r){
     for (let index = 0; index < n; index++) {
       r=r+"I";
     }
-   }
-   return r;
+    return r;
   }
 
   QUnit.module('Roman', function() {
