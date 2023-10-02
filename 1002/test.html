@@ -17,6 +17,9 @@
       
     }
    }
+   if(n==4){
+    r="IV";
+   }
    return r;
   }
 
@@ -29,6 +32,9 @@
     });
     QUnit.test('3', function(assert) {
       assert.equal(add(3), 'III');
+    });
+    QUnit.test('4', function(assert) {
+      assert.equal(add(4), 'IV');
     });
   });
 </script>
