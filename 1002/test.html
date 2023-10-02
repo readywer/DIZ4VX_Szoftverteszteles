@@ -10,12 +10,20 @@
 
 <script>
   function add(a) {
-    return 'I';
+    if(a==1){
+      return 'I';
+    }
+    else{
+      return 'II';
+    }
   }
 
-  QUnit.module('1', function() {
+  QUnit.module('Roman', function() {
     QUnit.test('1', function(assert) {
       assert.equal(add(1), 'I');
+    });
+    QUnit.test('2', function(assert) {
+      assert.equal(add(2), 'II');
     });
   });
 </script>
