@@ -30,6 +30,13 @@
    else if(n==9){
     r="IX";
    }
+   else if(n<=13){
+    n +=-10;
+    r ="X"
+    for (let index = 0; index < n; index++) {
+      r=r+"I";
+    }
+   }
    return r;
   }
 
@@ -60,6 +67,9 @@
     });
     QUnit.test('9', function(assert) {
       assert.equal(add(9), 'IX');
+    });
+    QUnit.test('10', function(assert) {
+      assert.equal(add(10), 'X');
     });
   });
 </script>
