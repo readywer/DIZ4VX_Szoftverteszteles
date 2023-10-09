@@ -10,8 +10,8 @@
 
 <script>
    function add(num) {
-  const values = [40, 10, 9, 5, 4, 1];
-    const romanSymbols = ['XL','X', 'IX', 'V', 'IV', 'I'];
+  const values = [50, 40, 10, 9, 5, 4, 1];
+    const romanSymbols = ['L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
     
     let result = '';
     
@@ -64,6 +64,9 @@
     });
 	QUnit.test('49', function(assert) {
       assert.equal(add(49), 'XLIX');
+    });
+	QUnit.test('50', function(assert) {
+      assert.equal(add(50), 'L');
     });
   });
 </script>
