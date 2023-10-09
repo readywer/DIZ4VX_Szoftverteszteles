@@ -9,36 +9,21 @@
 </body>
 
 <script>
-  function add(n) {
-  var r= "";
-   if(n<=3){
-    r=IAdd(n,r);
-   }
-   else if(n==4){
-    r="IV";
-   }
-   else if(n<=8){
-    n +=-5;
-    r ="V"
-    r=IAdd(n,r);
-   }
-   else if(n==9){
-    r="IX";
-   }
-   else if(n<=13){
-    n -= 10;
-    r ="X"
-    r=IAdd(n,r);
-   }
-   return r;
-  }
-  
-  function IAdd(n,r){
-    for (let index = 0; index < n; index++) {
-      r=r+"I";
+   function add(num) {
+  const values = [ 10, 9, 5, 4, 1];
+    const romanSymbols = ['X', 'IX', 'V', 'IV', 'I'];
+    
+    let result = '';
+    
+    for (let i = 0; i < values.length; i++) {
+        while (num >= values[i]) {
+            result += romanSymbols[i];
+            num -= values[i];
+        }
     }
-    return r;
-  }
+    
+    return result;
+	}
 
   QUnit.module('Roman', function() {
     QUnit.test('1', function(assert) {
@@ -73,6 +58,9 @@
     });
     QUnit.test('13', function(assert) {
       assert.equal(add(13), 'XIII');
+    });
+	QUnit.test('19', function(assert) {
+      assert.equal(add(19), 'XIX');
     });
   });
 </script>
