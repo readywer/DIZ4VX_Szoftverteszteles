@@ -10,8 +10,8 @@
 
 <script>
    function add(num) {
-  const values = [500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-    const romanSymbols = ['D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const romanSymbols = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
     
     let result = '';
     
@@ -79,6 +79,12 @@
     });
 	QUnit.test('500', function(assert) {
       assert.equal(add(500), 'D');
+    });
+	QUnit.test('900', function(assert) {
+      assert.equal(add(900), 'CM');
+    });
+	QUnit.test('1000', function(assert) {
+      assert.equal(add(1000), 'M');
     });
   });
 </script>
