@@ -21,17 +21,24 @@
         place = move(direction, movement, place);
       }
     }
-
-
     result = direction + place[0] + place[1];
     return result;
   }
+
   function move(direction, step, place) {
     if (direction === "N") {
       if (step === "f") {
-        place[1]++;
+        if (place[1] === 8) {
+          place[1] = 0;
+        } else {
+          place[1]++;
+        }
       } else {
-        place[1]--;
+        if (place[1] === 0) {
+          place[1] = 8;
+        } else {
+          place[1]--;
+        }
       }
     }
     else if (direction === "W") {
@@ -57,6 +64,7 @@
     }
     return place;
   }
+
   function directionChange(direction, turn) {
     if (direction === "N") {
       if (turn === "r") {
@@ -115,13 +123,16 @@
       assert.equal(main(["b"]), "N43");
     });
     QUnit.test('9.r,f', function (assert) {
-      assert.equal(main(["r","f"]), "E54");
+      assert.equal(main(["r", "f"]), "E54");
     });
     QUnit.test('10.l,f', function (assert) {
-      assert.equal(main(["l","f"]), "W34");
+      assert.equal(main(["l", "f"]), "W34");
     });
     QUnit.test('11.r,r,f', function (assert) {
-      assert.equal(main(["r","r","f"]), "S43");
+      assert.equal(main(["r", "r", "f"]), "S43");
+    });
+    QUnit.test('11.go to the other side N', function (assert) {
+      assert.equal(main(["f", "f", "f", "f", "f"]), "N40");
     });
   });
 </script>
