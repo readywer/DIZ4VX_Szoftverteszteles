@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <title>Test Suite</title>
 <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
@@ -9,18 +10,34 @@
 </body>
 
 <script>
-   function main(movements) {
-    x=4;
-    y=4;
-    direction="N";
+  function main(movements) {
+    x = 4;
+    y = 4;
+    direction = "N";
+    for (const movement of movements) {
+      if (movement === "r" || movement === "l") {
+        direction = directionChange(direction, movement);
+      }
+    }
 
-    result=direction+x+y;
+    result = direction + x + y;
     return result;
-	}
+  }
+  function directionChange(direction, turn) {
+    if (direction === "N")
+      if (turn === "r") {
+        new_direction = "E";
+      }
+      
+    return new_direction;
+  }
 
-  QUnit.module('Holdjaro', function() {
-    QUnit.test('1', function(assert) {
-      assert.equal(main(), "N44");
+  QUnit.module('Holdjaro', function () {
+    QUnit.test('Default', function (assert) {
+      assert.equal(main([]), "N44");
+    });
+    QUnit.test('right', function (assert) {
+      assert.equal(main(["r"]), "E44");
     });
   });
 </script>
