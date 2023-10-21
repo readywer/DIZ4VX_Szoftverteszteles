@@ -31,6 +31,9 @@
       else {
         new_direction = "W";
       }
+      else if (direction === "W") {
+        new_direction="S";
+      }
     return new_direction;
   }
 
@@ -43,6 +46,9 @@
     });
     QUnit.test('left', function (assert) {
       assert.equal(main(["l"]), "W44");
+    });
+    QUnit.test('left, left', function (assert) {
+      assert.equal(main(["l","l"]), "S44");
     });
   });
 </script>
