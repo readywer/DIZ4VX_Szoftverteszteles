@@ -13,6 +13,16 @@
   function main(movements) {
     place = [4, 4];//x,y
     direction = "N";
+    map =[
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0]
+    ];
     for (const movement of movements) {
       if (movement === "r" || movement === "l") {
         direction = directionChange(direction, movement);
