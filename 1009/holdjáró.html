@@ -45,6 +45,13 @@
         new_direction = "N";
       }
     }
+    else if (direction === "S") {
+      if (turn === "r") {
+        new_direction = "W";
+      } else {
+        new_direction = "E";
+      }
+    }
 
 
     return new_direction;
@@ -65,6 +72,9 @@
     });
     QUnit.test('5.right, right', function (assert) {
       assert.equal(main(["r", "r"]), "S44");
+    });
+    QUnit.test('5.right, right,right', function (assert) {
+      assert.equal(main(["r", "r", "r"]), "W44");
     });
   });
 </script>
