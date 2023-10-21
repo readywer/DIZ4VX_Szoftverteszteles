@@ -50,9 +50,9 @@
     }
     else if (direction === "S") {
       if (step === "f") {
-
+        place[1]--;
       } else {
-
+        place[1]++;
       }
     }
     return place;
@@ -119,6 +119,9 @@
     });
     QUnit.test('10.l,f', function (assert) {
       assert.equal(main(["l","f"]), "W34");
+    });
+    QUnit.test('11.r,r,f', function (assert) {
+      assert.equal(main(["r","r","f"]), "S43");
     });
   });
 </script>
