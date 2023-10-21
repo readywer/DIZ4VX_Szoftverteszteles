@@ -50,7 +50,7 @@
         }
       } else {
         if (place[0] === 8) {
-          place[0] = 0
+          place[0] = 0;
         } else {
           place[0]++;
         }
@@ -73,9 +73,17 @@
     }
     else if (direction === "S") {
       if (step === "f") {
-        place[1]--;
+        if (place[1] === 0) {
+          place[1] = 8;
+        } else {
+          place[1]--;
+        }
       } else {
-        place[1]++;
+        if (place[1] === 8) {
+          place[1] = 0;
+        } else {
+          place[1]++;
+        }
       }
     }
     return place;
@@ -155,6 +163,9 @@
     });
     QUnit.test('14.go to the other side W', function (assert) {
       assert.equal(main(["l", "f", "f", "f", "f", "f"]), "W84");
+    });
+    QUnit.test('15.go to the other side S', function (assert) {
+      assert.equal(main(["r", "r", "f", "f", "f", "f", "f"]), "S48");
     });
   });
 </script>
