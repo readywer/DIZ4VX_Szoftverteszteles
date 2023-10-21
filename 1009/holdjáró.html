@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+</body>
+
+<script>
+   function main(movements) {
+    x=4;
+    y=4;
+    direction="N";
+
+    result=direction+x+y;
+    return result;
+	}
+
+  QUnit.module('Holdjaro', function() {
+    QUnit.test('1', function(assert) {
+      assert.equal(main(), "N44");
+    });
+  });
+</script>
