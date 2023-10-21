@@ -28,7 +28,9 @@
       if (turn === "r") {
         new_direction = "E";
       }
-      
+      else {
+        new_direction = "W";
+      }
     return new_direction;
   }
 
@@ -38,6 +40,9 @@
     });
     QUnit.test('right', function (assert) {
       assert.equal(main(["r"]), "E44");
+    });
+    QUnit.test('left', function (assert) {
+      assert.equal(main(["l"]), "W44");
     });
   });
 </script>
