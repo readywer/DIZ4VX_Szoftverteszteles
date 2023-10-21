@@ -24,31 +24,47 @@
     return result;
   }
   function directionChange(direction, turn) {
-    if (direction === "N")
+    if (direction === "N") {
       if (turn === "r") {
         new_direction = "E";
-      }
-      else {
+      } else {
         new_direction = "W";
       }
-      else if (direction === "W") {
-        new_direction="S";
+    }
+    else if (direction === "W") {
+      if (turn === "r") {
+        new_direction = "N";
+      } else {
+        new_direction = "S";
       }
+    }
+    else if (direction === "E") {
+      if (turn === "r") {
+        new_direction = "S";
+      } else {
+        new_direction = "N";
+      }
+    }
+
+
     return new_direction;
   }
 
   QUnit.module('Holdjaro', function () {
-    QUnit.test('Default', function (assert) {
+    QUnit.test('1.Default', function (assert) {
       assert.equal(main([]), "N44");
     });
-    QUnit.test('right', function (assert) {
+    QUnit.test('2.right', function (assert) {
       assert.equal(main(["r"]), "E44");
     });
-    QUnit.test('left', function (assert) {
+    QUnit.test('3.left', function (assert) {
       assert.equal(main(["l"]), "W44");
     });
-    QUnit.test('left, left', function (assert) {
-      assert.equal(main(["l","l"]), "S44");
+    QUnit.test('4.left, left', function (assert) {
+      assert.equal(main(["l", "l"]), "S44");
+    });
+    QUnit.test('5.right, right', function (assert) {
+      assert.equal(main(["r", "r"]), "S44");
     });
   });
 </script>
