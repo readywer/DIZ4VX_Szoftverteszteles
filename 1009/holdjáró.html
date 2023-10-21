@@ -11,17 +11,52 @@
 
 <script>
   function main(movements) {
-    x = 4;
-    y = 4;
+    place =[4,4];//x,y
     direction = "N";
     for (const movement of movements) {
       if (movement === "r" || movement === "l") {
         direction = directionChange(direction, movement);
       }
-    }
+      else if (movement === "f" || movement === "b") {
+        place = move(direction, movement,place);
 
-    result = direction + x + y;
-    return result;
+      }
+    }
+  
+
+  result = direction + place[0]+place[1];
+  return result;
+  }
+  function move(direction,step,place){
+    if (direction === "N") {
+      if (step === "f") {
+        place[1]++;
+      } else {
+        
+      }
+    }
+    else if (direction === "W") {
+      if (step === "f") {
+        
+      } else {
+        
+      }
+    }
+    else if (direction === "E") {
+      if (step === "f") {
+        
+      } else {
+        
+      }
+    }
+    else if (direction === "S") {
+      if (step === "f") {
+        
+      } else {
+        
+      }
+    }
+    return place;
   }
   function directionChange(direction, turn) {
     if (direction === "N") {
@@ -52,8 +87,6 @@
         new_direction = "E";
       }
     }
-
-
     return new_direction;
   }
 
@@ -75,6 +108,9 @@
     });
     QUnit.test('5.right, right,right', function (assert) {
       assert.equal(main(["r", "r", "r"]), "W44");
+    });
+    QUnit.test('5.forward', function (assert) {
+      assert.equal(main(["f"]), "N45");
     });
   });
 </script>
